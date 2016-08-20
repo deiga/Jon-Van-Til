@@ -1,0 +1,6 @@
+- [ ] API Endpoints
+  - [ ] Add book
+  - [ ] Search books
+  - [ ] List books
+  - [ ] Mark as checked-out
+  - [ ] Download book

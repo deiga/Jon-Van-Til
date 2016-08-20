@@ -1,0 +1,22 @@
+{
+  "name": "jon-van-til",
+  "version": "0.0.1",
+  "description": "Slack Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deiga/Jon-Van-Til.git"
+  },
+  "author": "Timo Sand <timo.sand@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deiga/Jon-Van-Til/issues"
+  },
+  "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
+  "devDependencies": {
+    "serverless": "^1.0.0-beta.2"
+  }
+}
