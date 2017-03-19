@@ -11,11 +11,13 @@
 #
 # Happy Coding!
 
-service: slack-library
+service: guve-slack-library
 
 provider:
   name: aws
   runtime: nodejs4.3
+  region: eu-west-1
+  cfLogs: true
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -25,47 +27,79 @@ provider:
         - dynamodb:UpdateTable
         - dynamodb:DescribeTable
       Resource: "*"
-
-# you can overwrite defaults here
-defaults:
- stage: dev
- region: eu-west-1
+  stage: ${opt:stage, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${self:provider.stage}}
+custom:
+  defaultStage: dev
+  profiles:
+    dev: wd-sandbox
+    prod: prodProfile
 
 # you can add packaging information here
-# package:
-#  include:
-#    - include-me.js
-  # exclude:
-  #   - node_modules/serverless/
-  #   - node_modules/https-proxy-agent/
-  #   - node_modules/https-proxy-agent/
-#  artifact: my-service-code.zip
+package:
+  individually: true
+  exclude:
+    - "**"
+
+plugins:
+  - serverless-offline
 
 functions:
-  add:
-    handler: books.add
+  api-library:
+    handler: api/books/index.route
     events:
       - http:
-          path: books/add
+          path: api/v2/book/{id}
+          method: get
+      - http:
+          path: api/v2/books/
+          method: get
+      - http:
+          path: api/v2/books/{query}
+          method: get
+      - http:
+          path: api/v2/books/add
           method: post
-  list:
-    handler: books.list
-    events:
-      - http:
-          path: books
-          method: get
-  get:
-    handler: books.get
-    events:
-      - http:
-          path: book/{id}
-          method: get
-  search:
-    handler: books.search
-    events:
-      - http:
-          path: books/{query}
-          method: get
+    package:
+      include:
+        - node_modules/vogels/**
+        - node_modules/vogels-promisified/**
+        - node_modules/bluebird/**
+        - node_modules/async/**
+        - node_modules/bunyan/**
+        - node_modules/dtrace-provider/**
+        - node_modules/nan/**
+        - node_modules/mv/**
+        - node_modules/ncp/**
+        - node_modules/rimraf/**
+        - node_modules/glob/**
+        - node_modules/inflight/**
+        - node_modules/wrappy/**
+        - node_modules/inherits/**
+        - node_modules/once/**
+        - node_modules/afe-json-stringify/**
+        - node_modules/joi/**
+        - node_modules/hoek/**
+        - node_modules/isemail/**
+        - node_modules/moment/**
+        - node_modules/topo/**
+        - node_modules/lodash/**
+        - node_modules/node-uuid/**
+        - node_modules/buffer/**
+        - node_modules/base64-js/**
+        - node_modules/ieee754/**
+        - node_modules/isarray/**
+        - node_modules/crypto-browserify/**
+        - node_modules/jmespath/**
+        - node_modules/querystring/**
+        - node_modules/ax/**
+        - node_modules/url/**
+        - node_modules/punycode/**
+        - node_modules/uuid/**
+        - node_modules/xml2js/**
+        - node_modules/xmlbuilder/**
+        - node_modules/sax/**
+        - api/books/**
 
 resources:
   Resources:

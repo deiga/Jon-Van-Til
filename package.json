@@ -16,9 +16,12 @@
     "url": "https://github.com/deiga/Jon-Van-Til/issues"
   },
   "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "serverless-offline": "^3.10.2"
+  },
   "dependencies": {
-    "aws-sdk": "^2.5.2",
-    "vogels": "^2.2.0"
+    "aws-sdk": "^2.26.0",
+    "vogels": "^2.2.0",
+    "vogels-promisified": "^2.2.3"
   }
 }
