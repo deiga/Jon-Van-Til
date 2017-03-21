@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.26.0",
+    "joi": "^10.2.2",
     "vogels": "^2.2.0",
     "vogels-promisified": "^2.2.3"
   }

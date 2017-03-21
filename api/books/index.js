@@ -1,65 +1,63 @@
 const Library = require('./lib');
 
 const API_NAME = 'WD Library API';
+const format = (formatter, ...args) => formatter.apply(this, args);
+const partial = (fn, ...args) => fn.bind(null, ...args);
+const compose = (f, g) => (...args) => g(f(...args));
 
-function formatter(bodyTemplate, response) {
-  return bodyTemplate.call(this, response);
-}
+const defaultFormatter = (response, input) => JSON.stringify({ response, input });
+
+const slackArrayFormatter = response =>
+  response
+    .map(item => `\u2022 ${item.name}, ${item.format}, ${item.BookId}\n`)
+    .reduce((acc, val) => acc + val, '');
+const slackObjectFormatter = response => response;
+const slackFormatterBuilder = (response) => {
+  if (Array.isArray(response)) {
+    return slackArrayFormatter(response);
+  }
+  if (Object.prototype.hasOwnProperty.call(response, 'BookId')) {
+    return slackObjectFormatter(response);
+  }
+  return response;
+};
+const slackFormatter = compose(slackFormatterBuilder, defaultFormatter);
 
 module.exports.route = (event, context, callback) => {
   console.info(`[${API_NAME}] Handle request ${JSON.stringify(event)}`);
 
-  const queryString = event.queryStringParameters || {}
+  const queryString = event.queryStringParameters || {};
+
   let responseFormatter;
 
   switch (queryString.format) {
     case 'slack': {
-      console.error('Dis is Slack')
-      const template = response =>
-        JSON.stringify({
-          response
-        })
-      responseFormatter = function defaultFormatter(response) {
-        return formatter(template, response)
-      }
+      responseFormatter = partial(format, slackFormatter);
       break;
     }
     default: {
-      console.error('Dis ain\'t Slack')
-      const template = response =>
-        JSON.stringify({
-          response
-        })
-      responseFormatter = function defaultFormatter(response) {
-        return formatter(template, response)
-      }
+      responseFormatter = partial(format, defaultFormatter);
     }
   }
 
   return new Promise((resolve, reject) => {
-    let evaluation;
     switch (event.resource) {
       case '/api/v2/book/{id}':
-        evaluation = resolve(Library.get(event.pathParameters.id));
-        break;
+        return resolve(Library.get(event.pathParameters.id));
       case '/api/v2/books/{query}':
-        evaluation = resolve(Library.search(event.pathParameters.query.toLowerCase()));
-        break;
+        return resolve(Library.search(event.pathParameters.query.toLowerCase()));
       case '/api/v2/books':
-        evaluation = resolve(Library.list());
-        break;
+        return resolve(Library.list());
       case '/api/v2/books/add': {
         const body = JSON.parse(event.body);
         if (!Library.validate(body)) {
-          evaluation = reject({ message: 'Validation failed for body' });
+          return reject({ message: 'Validation failed for body' });
         }
-        evaluation = resolve(Library.add(body));
-        break;
+        return resolve(Library.add(body));
       }
       default:
-        evaluation = reject({ message: `This route has not been configured ${event.resource}` })
+        return reject({ message: `This route has not been configured ${event.resource}` });
     }
-    return evaluation;
   })
   .then(
     response => ({ statusCode: 200, response }),
@@ -67,13 +65,13 @@ module.exports.route = (event, context, callback) => {
   ).then((responseTuple) => {
     console.info(`[${API_NAME}] Handle response ${JSON.stringify(responseTuple)}`);
 
-    responseTuple = responseTuple || DEFAULT_RESPONSE;
+    const formattedResponse = responseFormatter(responseTuple.response, event);
 
     const envelope = {
       statusCode: responseTuple.statusCode,
-      body: Object.assign({ input: event }, responseFormatter(responseTuple.response)),
+      body: formattedResponse,
     };
 
     callback(null, envelope);
-  })
-}
+  });
+};

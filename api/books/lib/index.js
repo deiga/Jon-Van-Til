@@ -1,9 +1,9 @@
-'use strict';
-
 const AWS = require('aws-sdk');
+
 AWS.config.update({ region: 'eu-west-1' });
 const dynamoDB = new AWS.DynamoDB();
 const vogels = require('vogels-promisified');
+
 vogels.dynamoDriver(dynamoDB);
 const Joi = require('joi');
 
@@ -21,9 +21,9 @@ const Books = vogels.define('Books', {
       hashKey: 'name',
       rangeKey: 'format',
       name: 'NameFormatIndex',
-      type: 'global'
-    }
-  ]
+      type: 'global',
+    },
+  ],
 });
 
 vogels.createTables((err) => {
@@ -43,13 +43,8 @@ function list() {
     .scan()
     .loadAll()
     .execAsync()
-    .then((book) => {
-      return book.Items.map((item) => {
-        return `\u2022 ${item.attrs.name}, ${item.attrs.format}, ${item.attrs.BookId}\n`
-      }).reduce((acc, val) => {
-        return acc + val
-      }, '')
-    })
+    .then(res => res.Items)
+    .then(books => books.map(model => model.attrs));
 }
 
 function add(body) {
@@ -57,21 +52,18 @@ function add(body) {
 }
 
 function validate(body) {
-  return !(typeof body == 'undefined'
-    || typeof body.name == 'undefined'
-    || typeof body.format == 'undefined')
+  return !(typeof body === 'undefined'
+    || typeof body.name === 'undefined'
+    || typeof body.format === 'undefined');
 }
 
+const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(query);
+const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query)
+const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query)
+
 function search(query) {
-  return Books
-    .scan()
-    .loadAll()
-    .execAsync()
-    .then((books) => {
-      return books.Items.map((model) => model.attrs).filter((book) => {
-        return book.name.toLowerCase().includes(query) || book.format.toLowerCase().includes(query);
-      });
-    })
+  return list()
+    .then(books => books.filter(book => filterByNameAndFormat(book, query)));
 }
 
 module.exports = {
