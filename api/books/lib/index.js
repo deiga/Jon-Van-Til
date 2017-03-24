@@ -59,8 +59,8 @@ function validate(body) {
 }
 
 const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(query);
-const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query)
-const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query)
+const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query);
+const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query);
 
 function search(query) {
   return list()
@@ -72,5 +72,5 @@ module.exports = {
   list: list,
   validate: validate,
   add: add,
-  search: search
-}
+  search: search,
+};

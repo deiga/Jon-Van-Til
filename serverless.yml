@@ -15,7 +15,7 @@ service: guve-slack-library
 
 provider:
   name: aws
-  runtime: nodejs4.3
+  runtime: nodejs6.10
   region: eu-west-1
   cfLogs: true
   iamRoleStatements:
@@ -29,11 +29,13 @@ provider:
       Resource: "*"
   stage: ${opt:stage, self:custom.defaultStage}
   profile: ${self:custom.profiles.${self:provider.stage}}
+
 custom:
   defaultStage: dev
   profiles:
     dev: wd-sandbox
     prod: prodProfile
+  webpackIncludeModules: true
 
 # you can add packaging information here
 package:
@@ -43,6 +45,7 @@ package:
 
 plugins:
   - serverless-offline
+  - serverless-webpack
 
 functions:
   api-library:
@@ -62,43 +65,6 @@ functions:
           method: post
     package:
       include:
-        - node_modules/vogels/**
-        - node_modules/vogels-promisified/**
-        - node_modules/bluebird/**
-        - node_modules/async/**
-        - node_modules/bunyan/**
-        - node_modules/dtrace-provider/**
-        - node_modules/nan/**
-        - node_modules/mv/**
-        - node_modules/ncp/**
-        - node_modules/rimraf/**
-        - node_modules/glob/**
-        - node_modules/inflight/**
-        - node_modules/wrappy/**
-        - node_modules/inherits/**
-        - node_modules/once/**
-        - node_modules/afe-json-stringify/**
-        - node_modules/joi/**
-        - node_modules/hoek/**
-        - node_modules/isemail/**
-        - node_modules/moment/**
-        - node_modules/topo/**
-        - node_modules/lodash/**
-        - node_modules/node-uuid/**
-        - node_modules/buffer/**
-        - node_modules/base64-js/**
-        - node_modules/ieee754/**
-        - node_modules/isarray/**
-        - node_modules/crypto-browserify/**
-        - node_modules/jmespath/**
-        - node_modules/querystring/**
-        - node_modules/ax/**
-        - node_modules/url/**
-        - node_modules/punycode/**
-        - node_modules/uuid/**
-        - node_modules/xml2js/**
-        - node_modules/xmlbuilder/**
-        - node_modules/sax/**
         - api/books/**
 
 resources:
