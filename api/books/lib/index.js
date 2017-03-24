@@ -2,17 +2,18 @@ const AWS = require('aws-sdk');
 
 AWS.config.update({ region: 'eu-west-1' });
 const dynamoDB = new AWS.DynamoDB();
-const vogels = require('vogels-promisified');
+const dynogels = require('dynogels-promisified');
 
-vogels.dynamoDriver(dynamoDB);
+dynogels.dynamoDriver(dynamoDB);
+dynogels.log.level('debug');
 const Joi = require('joi');
 
-const Books = vogels.define('Books', {
+const Books = dynogels.define('Books', {
   hashKey: 'BookId',
   timestamps: true,
   tableName: 'Books',
   schema: {
-    BookId: vogels.types.uuid(),
+    BookId: dynogels.types.uuid(),
     name: Joi.string(),
     format: Joi.string(),
   },
@@ -26,7 +27,7 @@ const Books = vogels.define('Books', {
   ],
 });
 
-vogels.createTables((err) => {
+dynogels.createTables((err) => {
   if (err) {
     console.log('Error creating tables: ', err);
   } else {

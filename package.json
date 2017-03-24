@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "aws-sdk": "^2.26.0",
+    "dynogels": "^7.1.0",
+    "dynogels-promisified": "^1.0.4",
     "joi": "^10.2.2",
-    "vogels": "^2.2.0",
-    "vogels-promisified": "^2.2.3"
   }
 }
