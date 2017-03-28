@@ -3,18 +3,16 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    // Support for multiple entries
     './api/books/index.js': './api/books/index.js',
   },
   output: {
     libraryTarget: 'commonjs',
     path: `${__dirname}/.webpack`,
-    filename: '[name]'
+    filename: '[name]',
   },
   target: 'node',
   externals: [
-    // Do not add aws-sdk - it is built-in in
-    'aws-sdk'
+    'aws-sdk',
   ],
   module: {
     loaders: [
@@ -23,7 +21,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
-      { test: /\.json$/, loader: 'json-loader' }
+      { test: /\.json$/, loader: 'json-loader' },
     ],
   },
   resolve: {
@@ -32,8 +30,8 @@ module.exports = {
       fs: './empty_shim.js',
       'safe-json-stringify': './empty_shim.js',
       mv: './empty_shim.js',
-      'source-map-support': './empty_shim.js'
-    }
+      'source-map-support': './empty_shim.js',
+    },
   },
   plugins: [
     // new webpack.IgnorePlugin(/(regenerator|nodent|js-beautify)$/), // Unnecessary AJV deps

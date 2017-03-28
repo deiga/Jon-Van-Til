@@ -63,6 +63,9 @@ functions:
       - http:
           path: api/v2/books/add
           method: post
+      - http:
+          path: api/v2/slack/library
+          method: post
     package:
       include:
         - api/books/**

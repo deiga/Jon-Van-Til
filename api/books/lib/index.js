@@ -5,7 +5,7 @@ const dynamoDB = new AWS.DynamoDB();
 const dynogels = require('dynogels-promisified');
 
 dynogels.dynamoDriver(dynamoDB);
-dynogels.log.level('debug');
+// dynogels.log.level('debug');
 const Joi = require('joi');
 
 const Books = dynogels.define('Books', {

@@ -1,3 +1,4 @@
+const qs = require('query-string');
 const Library = require('./lib');
 
 const API_NAME = 'WD Library API';
@@ -54,6 +55,33 @@ module.exports.route = (event, context, callback) => {
           return reject({ message: 'Validation failed for body' });
         }
         return resolve(Library.add(body));
+      }
+      case '/api/v2/slack/library': {
+        console.log('This is slack');
+        const slackPayload = JSON.parse(event.body);
+        if (slackPayload.text.length === 0) {
+          return resolve(Library.list());
+        }
+        const params = slackPayload.text.split(" ");
+        const action = params[0];
+        console.log(params);
+        switch (action) {
+          case 'list':
+            return resolve(Library.list());
+          case 'add': {
+            const body = JSON.parse(event.body);
+            if (!Library.validate(body)) {
+              return reject({ message: 'Validation failed for body' });
+            }
+            return resolve(Library.add(body));
+          }
+          case 'get':
+            return resolve(Library.get(params[1]));
+          case 'search':
+            return resolve(Library.search(params[1].toLowerCase()));
+          default:
+            return reject({ message: `This route has not been configured ${slackPayload.command}:${slackPayload.text}` });
+        }
       }
       default:
         return reject({ message: `This route has not been configured ${event.resource}` });
