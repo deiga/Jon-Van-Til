@@ -1,10 +1,8 @@
-const BabiliPlugin = require('babili-webpack-plugin');
+const BabiliPlugin = require('babel-minify-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-    './api/books/index.js': './api/books/index.js',
-  },
+  mode: 'production',
   output: {
     libraryTarget: 'commonjs',
     path: `${__dirname}/.webpack`,
@@ -15,13 +13,12 @@ module.exports = {
     'aws-sdk',
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
-      { test: /\.json$/, loader: 'json-loader' },
     ],
   },
   resolve: {
@@ -33,11 +30,17 @@ module.exports = {
       'source-map-support': './empty_shim.js',
     },
   },
+  optimization: {
+    namedModules: true,
+      splitChunks: {
+        name: 'vendor',
+        minChunks: 2
+      },
+      noEmitOnErrors: true,
+      concatenateModules: true
+  },
   plugins: [
     // new webpack.IgnorePlugin(/(regenerator|nodent|js-beautify)$/), // Unnecessary AJV deps
-
-    // Assign the module and chunk ids by occurrence count
-    new webpack.optimize.OccurrenceOrderPlugin(),
 
     // Chunk merging strategy
     new webpack.optimize.AggressiveMergingPlugin(),

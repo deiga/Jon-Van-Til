@@ -15,7 +15,7 @@ service: guve-slack-library
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   region: eu-west-1
   cfLogs: true
   iamRoleStatements:
@@ -35,7 +35,10 @@ custom:
   profiles:
     dev: wd-sandbox
     prod: prodProfile
-  webpackIncludeModules: true
+  webpack:
+    webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
+    includeModules: true   # Node modules configuration for packaging
+    packager: 'yarn'   # Packager that will be used to package your external modules
 
 # you can add packaging information here
 package:
