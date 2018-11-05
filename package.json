@@ -18,27 +18,25 @@
   "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.4",
-    "babel-minify-webpack-plugin": "0.3.1",
+    "babel-plugin-source-map-support": "chocolateboy/babel-plugin-source-map-support#4237f86da7a18a419f5fdc52e712f224c4cfe24d",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "ignore-loader": "^0.1.2",
     "json-loader": "^0.5.7",
     "serverless-offline": "^3.31.0",
-    "webpack": "^4.25.1"
+    "serverless-plugin-optimize": "^3.1.1-rc.1",
+    "serverless-webpack": "^5.2.0",
+    "webpack": "^4.25.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "aws-sdk": "^2.348.0",
     "dynogels": "^9.0.0",
     "dynogels-promisified": "^1.0.4",
     "joi": "^14.0.4",
-    "query-string": "^6.2.0",
-    "serverless-webpack": "^5.2.0"
+    "source-map-support": "^0.5.9"
   }
 }

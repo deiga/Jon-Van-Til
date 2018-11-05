@@ -9,9 +9,7 @@ module.exports = function (api) {
       }]
     ],
     "plugins": [
-      "@babel/plugin-transform-runtime",
       "babel-plugin-source-map-support",
-      "@babel/plugin-transform-modules-commonjs"
     ]
   }
 }

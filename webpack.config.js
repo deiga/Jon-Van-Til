@@ -1,51 +1,29 @@
-const BabiliPlugin = require('babel-minify-webpack-plugin');
-const webpack = require('webpack');
+const slsw = require("serverless-webpack");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
-  mode: 'production',
-  output: {
-    libraryTarget: 'commonjs',
-    path: `${__dirname}/.webpack`,
-    filename: '[name]',
-  },
+  entry: slsw.lib.entries,
+  mode: slsw.lib.webpack.isLocal ? "development" : "production",
+  devtool: 'source-map',
   target: 'node',
   externals: [
-    'aws-sdk',
+    nodeExternals()
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        include: __dirname,
         exclude: /node_modules/,
       },
     ],
   },
-  resolve: {
-    alias: {
-      'dtrace-provider': './empty_shim.js',
-      fs: './empty_shim.js',
-      'safe-json-stringify': './empty_shim.js',
-      mv: './empty_shim.js',
-      'source-map-support': './empty_shim.js',
-    },
-  },
   optimization: {
-    namedModules: true,
-      splitChunks: {
-        name: 'vendor',
-        minChunks: 2
-      },
-      noEmitOnErrors: true,
-      concatenateModules: true
+    minimize: false
   },
-  plugins: [
-    // new webpack.IgnorePlugin(/(regenerator|nodent|js-beautify)$/), // Unnecessary AJV deps
-
-    // Chunk merging strategy
-    new webpack.optimize.AggressiveMergingPlugin(),
-
-    // Babili Babel minification
-    new BabiliPlugin({ comments: false }),
-  ],
+  performance: {
+    // Turn off size warnings for entry points
+    hints: false
+  }
 };

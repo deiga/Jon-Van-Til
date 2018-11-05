@@ -40,15 +40,13 @@ custom:
     includeModules: true   # Node modules configuration for packaging
     packager: 'yarn'   # Packager that will be used to package your external modules
 
-# you can add packaging information here
-package:
-  individually: true
-  exclude:
-    - "**"
-
 plugins:
   - serverless-offline
   - serverless-webpack
+  - serverless-plugin-optimize
+
+package:
+  individually: true
 
 functions:
   api-library:
