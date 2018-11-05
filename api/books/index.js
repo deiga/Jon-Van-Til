@@ -1,4 +1,4 @@
-const qs = require('query-string');
+// const qs = require('query-string');
 const Library = require('./lib');
 
 const API_NAME = 'WD Library API';
@@ -102,4 +102,4 @@ module.exports.route = (event, context, callback) => {
 
     callback(null, envelope);
   });
-};
+}
