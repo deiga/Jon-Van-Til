@@ -20,7 +20,7 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.4",
-    "babel-plugin-source-map-support": "chocolateboy/babel-plugin-source-map-support#4237f86da7a18a419f5fdc52e712f224c4cfe24d",
+    "babel-plugin-source-map-support": "^2.0.1",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
