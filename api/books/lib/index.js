@@ -35,11 +35,11 @@ dynogels.createTables((err) => {
   }
 });
 
-function get(bookId) {
+export function get(bookId) {
   return Books.getAsync(bookId);
 }
 
-function list() {
+export function list() {
   return Books
     .scan()
     .loadAll()
@@ -48,11 +48,11 @@ function list() {
     .then(books => books.map(model => model.attrs));
 }
 
-function add(body) {
+export function add(body) {
   return Books.createAsync(body);
 }
 
-function validate(body) {
+export function validate(body) {
   return !(typeof body === 'undefined'
     || typeof body.name === 'undefined'
     || typeof body.format === 'undefined');
@@ -62,15 +62,7 @@ const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(
 const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query);
 const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query);
 
-function search(query) {
+export function search(query) {
   return list()
     .then(books => books.filter(book => filterByNameAndFormat(book, query)));
 }
-
-module.exports = {
-  get: get,
-  list: list,
-  validate: validate,
-  add: add,
-  search: search,
-};

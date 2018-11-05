@@ -1,5 +1,5 @@
 // const qs = require('query-string');
-const Library = require('./lib');
+import { get, search, list, validate, add } from './lib';
 
 const API_NAME = 'WD Library API';
 const format = (formatter, ...args) => formatter.apply(this, args);
@@ -24,7 +24,7 @@ const slackFormatterBuilder = (response) => {
 };
 const slackFormatter = compose(slackFormatterBuilder, defaultFormatter);
 
-module.exports.route = (event, context, callback) => {
+export function route(event, context, callback) {
   console.info(`[${API_NAME}] Handle request ${JSON.stringify(event)}`);
 
   const queryString = event.queryStringParameters || {};
@@ -44,41 +44,41 @@ module.exports.route = (event, context, callback) => {
   return new Promise((resolve, reject) => {
     switch (event.resource) {
       case '/api/v2/book/{id}':
-        return resolve(Library.get(event.pathParameters.id));
+        return resolve(get(event.pathParameters.id));
       case '/api/v2/books/{query}':
-        return resolve(Library.search(event.pathParameters.query.toLowerCase()));
+        return resolve(search(event.pathParameters.query.toLowerCase()));
       case '/api/v2/books':
-        return resolve(Library.list());
+        return resolve(list());
       case '/api/v2/books/add': {
         const body = JSON.parse(event.body);
-        if (!Library.validate(body)) {
+        if (!validate(body)) {
           return reject({ message: 'Validation failed for body' });
         }
-        return resolve(Library.add(body));
+        return resolve(add(body));
       }
       case '/api/v2/slack/library': {
         console.log('This is slack');
         const slackPayload = JSON.parse(event.body);
         if (slackPayload.text.length === 0) {
-          return resolve(Library.list());
+          return resolve(list());
         }
         const params = slackPayload.text.split(" ");
         const action = params[0];
         console.log(params);
         switch (action) {
           case 'list':
-            return resolve(Library.list());
+            return resolve(list());
           case 'add': {
             const body = JSON.parse(event.body);
-            if (!Library.validate(body)) {
+            if (!validate(body)) {
               return reject({ message: 'Validation failed for body' });
             }
-            return resolve(Library.add(body));
+            return resolve(add(body));
           }
           case 'get':
-            return resolve(Library.get(params[1]));
+            return resolve(get(params[1]));
           case 'search':
-            return resolve(Library.search(params[1].toLowerCase()));
+            return resolve(search(params[1].toLowerCase()));
           default:
             return reject({ message: `This route has not been configured ${slackPayload.command}:${slackPayload.text}` });
         }
