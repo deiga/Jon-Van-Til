@@ -7,4 +7,5 @@ cache:
   - npm
 
 before_script:
+  - npm install -g serverless
   - npm run build
