@@ -34,7 +34,7 @@
     "aws-sdk": "^2.26.0",
     "dynogels": "^7.1.0",
     "dynogels-promisified": "^1.0.4",
-    "joi": "^13.0.0",
+    "joi": "^14.0.4",
     "query-string": "^4.3.2",
     "serverless-webpack": "^1.0.0-rc.4"
   }
