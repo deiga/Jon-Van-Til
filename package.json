@@ -4,7 +4,8 @@
   "description": "Slack Library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "sls webpack",
+    "test": "sls invoke local -f api-library --data '{\"resource\":\"/api/v2/books\"}'"
   },
   "repository": {
     "type": "git",
