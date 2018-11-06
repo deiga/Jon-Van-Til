@@ -1,6 +1,8 @@
 const AWS = require('aws-sdk');
 
-AWS.config.update({ region: 'eu-west-1' });
+AWS.config.update({
+  region: 'eu-west-1'
+});
 const dynamoDB = new AWS.DynamoDB();
 const dynogels = require('dynogels-promisified');
 
@@ -17,14 +19,12 @@ const Books = dynogels.define('Books', {
     name: Joi.string(),
     format: Joi.string(),
   },
-  indexes: [
-    {
-      hashKey: 'name',
-      rangeKey: 'format',
-      name: 'NameFormatIndex',
-      type: 'global',
-    },
-  ],
+  indexes: [{
+    hashKey: 'name',
+    rangeKey: 'format',
+    name: 'NameFormatIndex',
+    type: 'global',
+  }, ],
 });
 
 dynogels.createTables((err) => {
@@ -43,7 +43,7 @@ export async function list() {
   const results = await Books.scan().loadAll().execAsync();
   const bookModels = results.Items;
 
-  return bookModels.map( model => model.attrs);
+  return bookModels.map(model => model.attrs);
 }
 
 export async function add(body) {
@@ -51,9 +51,9 @@ export async function add(body) {
 }
 
 export function validate(body) {
-  return !(typeof body === 'undefined'
-    || typeof body.name === 'undefined'
-    || typeof body.format === 'undefined');
+  return !(typeof body === 'undefined' ||
+    typeof body.name === 'undefined' ||
+    typeof body.format === 'undefined');
 }
 
 const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(query);

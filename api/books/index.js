@@ -1,7 +1,19 @@
 // const qs = require('query-string');
-import { get, search, list, validate, add } from './lib';
-import { partial } from './util'
-import { format, slackFormatter, defaultFormatter } from './format';
+import {
+  get,
+  search,
+  list,
+  validate,
+  add
+} from './lib';
+import {
+  partial
+} from './util'
+import {
+  format,
+  slackFormatter,
+  defaultFormatter
+} from './format';
 
 const API_NAME = 'WD Library API';
 async function handleRequest(event) {
@@ -58,7 +70,7 @@ async function handleSlackRequest(eventBody) {
       return await search(params[1].toLowerCase());
     default:
       throw new Error(`This route has not been configured ${slackPayload.command}:${slackPayload.text}`);
-    }
+  }
 }
 
 export async function route(event, context, callback) {
@@ -69,13 +81,15 @@ export async function route(event, context, callback) {
   let responseFormatter;
 
   switch (queryString.format) {
-    case 'slack': {
-      responseFormatter = partial(format, slackFormatter);
-      break;
-    }
-    default: {
-      responseFormatter = partial(format, defaultFormatter);
-    }
+    case 'slack':
+      {
+        responseFormatter = partial(format, slackFormatter);
+        break;
+      }
+    default:
+      {
+        responseFormatter = partial(format, defaultFormatter);
+      }
   }
 
   let responseTuple = {};
@@ -86,22 +100,22 @@ export async function route(event, context, callback) {
       statusCode: 200,
       response
     }
-  } catch(e) {
-      responseTuple = {
-        statusCode: /\[\d{3}\]/ [0] || 500,
-        response: {
-          message: e.message
-        }
+  } catch (e) {
+    responseTuple = {
+      statusCode: /\[\d{3}\]/ [0] || 500,
+      response: {
+        message: e.message
       }
+    }
   }
-    console.info(`[${API_NAME}] Handle response ${JSON.stringify(responseTuple)}`);
+  console.info(`[${API_NAME}] Handle response ${JSON.stringify(responseTuple)}`);
 
-    const formattedResponse = responseFormatter(responseTuple.response, event);
+  const formattedResponse = responseFormatter(responseTuple.response, event);
 
-    const envelope = {
-      statusCode: responseTuple.statusCode,
-      body: formattedResponse,
-    };
+  const envelope = {
+    statusCode: responseTuple.statusCode,
+    body: formattedResponse,
+  };
 
-    return callback(null, envelope);
+  return callback(null, envelope);
 }
