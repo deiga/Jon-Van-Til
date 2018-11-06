@@ -35,21 +35,19 @@ dynogels.createTables((err) => {
   }
 });
 
-export function get(bookId) {
-  return Books.getAsync(bookId);
+export async function get(bookId) {
+  return await Books.getAsync(bookId);
 }
 
-export function list() {
-  return Books
-    .scan()
-    .loadAll()
-    .execAsync()
-    .then(res => res.Items)
-    .then(books => books.map(model => model.attrs));
+export async function list() {
+  const results = await Books.scan().loadAll().execAsync();
+  const bookModels = results.Items;
+
+  return bookModels.map( model => model.attrs);
 }
 
-export function add(body) {
-  return Books.createAsync(body);
+export async function add(body) {
+  return await Books.createAsync(body);
 }
 
 export function validate(body) {
@@ -62,7 +60,8 @@ const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(
 const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query);
 const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query);
 
-export function search(query) {
-  return list()
-    .then(books => books.filter(book => filterByNameAndFormat(book, query)));
+export async function search(query) {
+  const books = await list();
+
+  return books.filter(book => filterByNameAndFormat(book, query));
 }
