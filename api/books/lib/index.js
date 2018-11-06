@@ -1,6 +1,8 @@
 const AWS = require('aws-sdk');
 
-AWS.config.update({ region: 'eu-west-1' });
+AWS.config.update({
+  region: 'eu-west-1'
+});
 const dynamoDB = new AWS.DynamoDB();
 const dynogels = require('dynogels-promisified');
 
@@ -17,14 +19,12 @@ const Books = dynogels.define('Books', {
     name: Joi.string(),
     format: Joi.string(),
   },
-  indexes: [
-    {
-      hashKey: 'name',
-      rangeKey: 'format',
-      name: 'NameFormatIndex',
-      type: 'global',
-    },
-  ],
+  indexes: [{
+    hashKey: 'name',
+    rangeKey: 'format',
+    name: 'NameFormatIndex',
+    type: 'global',
+  }, ],
 });
 
 dynogels.createTables((err) => {
@@ -35,34 +35,33 @@ dynogels.createTables((err) => {
   }
 });
 
-export function get(bookId) {
-  return Books.getAsync(bookId);
+export async function get(bookId) {
+  return await Books.getAsync(bookId);
 }
 
-export function list() {
-  return Books
-    .scan()
-    .loadAll()
-    .execAsync()
-    .then(res => res.Items)
-    .then(books => books.map(model => model.attrs));
+export async function list() {
+  const results = await Books.scan().loadAll().execAsync();
+  const bookModels = results.Items;
+
+  return bookModels.map(model => model.attrs);
 }
 
-export function add(body) {
-  return Books.createAsync(body);
+export async function add(body) {
+  return await Books.createAsync(body);
 }
 
 export function validate(body) {
-  return !(typeof body === 'undefined'
-    || typeof body.name === 'undefined'
-    || typeof body.format === 'undefined');
+  return !(typeof body === 'undefined' ||
+    typeof body.name === 'undefined' ||
+    typeof body.format === 'undefined');
 }
 
 const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(query);
 const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query);
 const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query);
 
-export function search(query) {
-  return list()
-    .then(books => books.filter(book => filterByNameAndFormat(book, query)));
+export async function search(query) {
+  const books = await list();
+
+  return books.filter(book => filterByNameAndFormat(book, query));
 }
