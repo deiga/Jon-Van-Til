@@ -1,13 +1,13 @@
-const slsw = require("serverless-webpack");
-const nodeExternals = require("webpack-node-externals");
+const slsw = require('serverless-webpack');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: slsw.lib.entries,
-  mode: slsw.lib.webpack.isLocal ? "development" : "production",
+  mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   devtool: 'source-map',
   target: 'node',
   externals: [
-    nodeExternals()
+    nodeExternals(),
   ],
   module: {
     rules: [
@@ -20,10 +20,10 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: false
+    minimize: false,
   },
   performance: {
     // Turn off size warnings for entry points
-    hints: false
+    hints: false,
   }
 };

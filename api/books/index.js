@@ -4,76 +4,74 @@ import {
   search,
   list,
   validate,
-  add
+  add,
 } from './lib';
 import {
   partial
-} from './util'
+} from './util';
 import {
   format,
   slackFormatter,
-  defaultFormatter
+  defaultFormatter,
 } from './format';
 
 const API_NAME = 'WD Library API';
-async function handleRequest(event) {
 
-  switch (event.resource) {
-    case '/api/v2/book/{id}':
-      return await get(event.pathParameters.id);
-    case '/api/v2/books/{query}':
-      return await search(event.pathParameters.query.toLowerCase());
-    case '/api/v2/books':
-      return await list();
-    case '/api/v2/books/add':
-      return await handleBooksAddRequest(event)
-    case '/api/v2/slack/library':
-      return await handleSlackRequest(event.body)
-    default:
-      throw new Error(`This route has not been configured ${event.resource}`);
-  }
-}
-
-async function handleBooksAddRequest(event) {
+async function handleBooksAddRequest(eventBody) {
   let body;
-  if (typeof event.body === 'object') {
-    body = event.body;
+  if (typeof eventBody === 'object') {
+    body = eventBody;
   } else {
-    body = JSON.parse(event.body);
+    body = JSON.parse(eventBody);
   }
 
   if (!validate(body)) {
-    throw {
-      message: 'Validation failed for body'
-    };
+    throw new Error('Validation failed for body');
   }
-  return await add(body);
+  return add(body);
 }
 
 async function handleSlackRequest(eventBody) {
   console.log('This is slack');
   const slackPayload = JSON.parse(eventBody);
   if (slackPayload.text.length === 0) {
-    return await list();
+    return list();
   }
-  const params = slackPayload.text.split(" ");
+  const params = slackPayload.text.split(' ');
   const action = params[0];
   console.log(params);
   switch (action) {
     case 'list':
-      return await list();
+      return list();
     case 'add':
-      return await handleBooksAddRequest(event)
+      return handleBooksAddRequest(eventBody)
     case 'get':
-      return await get(params[1]);
+      return get(params[1]);
     case 'search':
-      return await search(params[1].toLowerCase());
+      return search(params[1].toLowerCase());
     default:
       throw new Error(`This route has not been configured ${slackPayload.command}:${slackPayload.text}`);
   }
 }
 
-export async function route(event, context, callback) {
+async function handleRequest(event) {
+  switch (event.resource) {
+    case '/api/v2/book/{id}':
+      return get(event.pathParameters.id);
+    case '/api/v2/books/{query}':
+      return search(event.pathParameters.query.toLowerCase());
+    case '/api/v2/books':
+      return list();
+    case '/api/v2/books/add':
+      return handleBooksAddRequest(event.body);
+    case '/api/v2/slack/library':
+      return handleSlackRequest(event.body);
+    default:
+      throw new Error(`This route has not been configured ${event.resource}`);
+  }
+}
+
+export default async function route(event, context, callback) {
   console.info(`[${API_NAME}] Handle request ${JSON.stringify(event)}`);
 
   const queryString = event.queryStringParameters || {};
@@ -82,31 +80,30 @@ export async function route(event, context, callback) {
 
   switch (queryString.format) {
     case 'slack':
-      {
-        responseFormatter = partial(format, slackFormatter);
-        break;
-      }
+    {
+      responseFormatter = partial(format, slackFormatter);
+      break;
+    }
     default:
-      {
-        responseFormatter = partial(format, defaultFormatter);
-      }
+    {
+      responseFormatter = partial(format, defaultFormatter);
+    }
   }
 
   let responseTuple = {};
   try {
-
     const response = await handleRequest(event);
     responseTuple = {
       statusCode: 200,
-      response
-    }
+      response,
+    };
   } catch (e) {
     responseTuple = {
-      statusCode: /\[\d{3}\]/ [0] || 500,
+      statusCode: /\[\d{3}\]/[0] || 500,
       response: {
-        message: e.message
-      }
-    }
+        message: e.message,
+      },
+    };
   }
   console.info(`[${API_NAME}] Handle response ${JSON.stringify(responseTuple)}`);
 

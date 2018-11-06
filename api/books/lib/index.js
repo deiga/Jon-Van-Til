@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 
 AWS.config.update({
-  region: 'eu-west-1'
+  region: 'eu-west-1',
 });
 const dynamoDB = new AWS.DynamoDB();
 const dynogels = require('dynogels-promisified');
@@ -36,7 +36,7 @@ dynogels.createTables((err) => {
 });
 
 export async function get(bookId) {
-  return await Books.getAsync(bookId);
+  return Books.getAsync(bookId);
 }
 
 export async function list() {
@@ -47,7 +47,7 @@ export async function list() {
 }
 
 export async function add(body) {
-  return await Books.createAsync(body);
+  return Books.createAsync(body);
 }
 
 export function validate(body) {
@@ -58,7 +58,10 @@ export function validate(body) {
 
 const filterBookNameByQuery = (book, query) => book.name.toLowerCase().includes(query);
 const filterBookFormatByQuery = (book, query) => book.format.toLowerCase().includes(query);
-const filterByNameAndFormat = (book, query) => filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query);
+function filterByNameAndFormat(book, query) {
+  return filterBookNameByQuery(book, query) || filterBookFormatByQuery(book, query);
+}
+
 
 export async function search(query) {
   const books = await list();

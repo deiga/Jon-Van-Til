@@ -1,15 +1,15 @@
-module.exports = function (api) {
+module.exports = function config(api) {
   api.cache.never()
   return {
     presets: [
-      ["@babel/preset-env", {
+      ['@babel/preset-env', {
         targets: {
-          "node": "8.10"
-        }
-      }]
+          node: '8.10',
+        },
+      }],
     ],
-    "plugins": [
-      "babel-plugin-source-map-support",
-    ]
-  }
-}
+    plugins: [
+      'babel-plugin-source-map-support',
+    ],
+  };
+};
