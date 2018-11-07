@@ -71,7 +71,8 @@ async function handleRequest(event) {
   }
 }
 
-export default async function route(event, context, callback) {
+// eslint-disable-next-line import/prefer-default-export
+export async function route(event, context, callback) {
   console.info(`[${API_NAME}] Handle request ${JSON.stringify(event)}`);
 
   const queryString = event.queryStringParameters || {};
