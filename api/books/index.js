@@ -7,7 +7,7 @@ import {
   add,
 } from './lib';
 import {
-  partial
+  partial,
 } from './util';
 import {
   format,
@@ -44,7 +44,7 @@ async function handleSlackRequest(eventBody) {
     case 'list':
       return list();
     case 'add':
-      return handleBooksAddRequest(eventBody)
+      return handleBooksAddRequest(eventBody);
     case 'get':
       return get(params[1]);
     case 'search':

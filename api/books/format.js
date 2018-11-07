@@ -1,10 +1,10 @@
 import {
-  compose
+  compose,
 } from './util';
 export const format = (formatter, ...args) => formatter.apply(this, args);
 export const defaultFormatter = (response, input) => JSON.stringify({
   response,
-  input
+  input,
 });
 const slackArrayFormatter = response => response
   .map(item => `\u2022 ${item.name}, ${item.format}, ${item.BookId}\n`)

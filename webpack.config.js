@@ -25,5 +25,5 @@ module.exports = {
   performance: {
     // Turn off size warnings for entry points
     hints: false,
-  }
+  },
 };

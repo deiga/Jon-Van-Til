@@ -24,7 +24,7 @@ const Books = dynogels.define('Books', {
     rangeKey: 'format',
     name: 'NameFormatIndex',
     type: 'global',
-  }, ],
+  }],
 });
 
 dynogels.createTables((err) => {
