@@ -2061,11 +2061,11 @@ cross-spawn@^6.0.5:
     which "^1.2.9"
 
 cryptiles@3.x.x:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-3.1.1.tgz#86a9203f7367a0e9324bc7555ff0fcf5f81979ee"
-  integrity sha1-hqkgP3NnoOkyS8dVX/D89fgZee4=
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-3.1.4.tgz#769a68c95612b56faadfcebf57ac86479cbe8322"
+  integrity sha512-8I1sgZHfVwcSOY6mSGpVU3lw/GSIZvusg8dD2+OGehCJpOhQRLNcH0qb9upQnOH4XhgxxFJSg6E2kx95deb1Tw==
   dependencies:
-    boom "4.x.x"
+    boom "5.x.x"
 
 cryptiles@^4.1.2:
   version "4.1.3"
