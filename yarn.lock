@@ -4864,10 +4864,10 @@ serialize-javascript@^1.4.0:
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
   integrity sha512-Ga8c8NjAAp46Br4+0oZ2WxJCwIzwP60Gq1YPgU+39PiTVxyed/iKE/zyZI6+UlVYH5Q4PaQdHhcegIFPZTUfoQ==
 
-serverless-offline@^3.33.0:
-  version "3.33.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.33.0.tgz#bd2cd8eaebec467e8691f597053c3d9ee9844a62"
-  integrity sha512-S4Bl6bdY0BU5cIy5COt3lRBK7LQXNoAgouA7gLvj2spmGbpkmHiNAGDPLWbOIbdjFqtb1mnD+3stxoVkKdVaUw==
+serverless-offline@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.0.0.tgz#3ba9fe467ed6b7a0e4661160b2d7929bd5ca03df"
+  integrity sha512-KG8wzrMZyOdI3MtDRahZq0u1O+MCHTRQVugitTo5wfLJKCqWSdtSXy6lW18NLMHoPYfCf+5hdB3vT/nCK6zqug==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/register" "^7.0.0"
