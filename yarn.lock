@@ -4921,10 +4921,10 @@ serialize-javascript@^1.4.0:
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
   integrity sha512-Ga8c8NjAAp46Br4+0oZ2WxJCwIzwP60Gq1YPgU+39PiTVxyed/iKE/zyZI6+UlVYH5Q4PaQdHhcegIFPZTUfoQ==
 
-serverless-offline@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.1.4.tgz#0ce7f526f05412a397b7cc906b5804dfd5e4b61e"
-  integrity sha512-4fGxPOwBfIbY5gCCyah4m2H8hJd9fR9jeFP1eI4GpkYZKDmphJM3QeNSQF4cGMDwXrBMwLWO6t7a6nLBLj93kw==
+serverless-offline@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.2.0.tgz#79e6adfd935812b2ef27ffc3ffd967400d83cf3c"
+  integrity sha512-pAErotlNGFPqWuPUKD2gYC3KmqElM7aCkv4nkGewX7AamLH49feRGJLiZQH79+Rj5ysk/sQCFk/K9vhew5dDIw==
   dependencies:
     boom "^7.3.0"
     cryptiles "^4.1.2"
@@ -4935,7 +4935,6 @@ serverless-offline@^4.1.4:
     jsonpath-plus "^0.16.0"
     jsonwebtoken "^8.3.0"
     trim-newlines "^2.0.0"
-    uuid "^3.3.2"
     velocityjs "^1.1.2"
 
 serverless-plugin-optimize@^4.0.0-rc.1:
@@ -5722,7 +5721,7 @@ uuid@3.1.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
   integrity sha512-DIWtzUkw04M4k3bf1IcpS2tngXEL26YUD2M0tMDUpnUrz2hgzUBlD55a4FjdLGPvfHxS6uluGWvaVEqgBcVa+g==
 
-uuid@3.3.2, uuid@^3.3.2:
+uuid@3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
