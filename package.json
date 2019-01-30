@@ -27,7 +27,7 @@
     "babel-plugin-source-map-support": "^2.0.1",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-import": "^2.16.0",
     "ignore-loader": "^0.1.2",
     "json-loader": "^0.5.7",
     "serverless-offline": "^4.2.0",
