@@ -30,7 +30,7 @@
     "eslint-plugin-import": "^2.16.0",
     "ignore-loader": "^0.1.2",
     "json-loader": "^0.5.7",
-    "serverless-offline": "^4.2.0",
+    "serverless-offline": "^4.2.1",
     "serverless-plugin-optimize": "^4.0.0-rc.1",
     "serverless-webpack": "^5.2.0",
     "webpack": "^4.29.0",
