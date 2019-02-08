@@ -37,7 +37,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "aws-sdk": "^2.397.0",
+    "aws-sdk": "^2.399.0",
     "dynogels": "^9.0.0",
     "dynogels-promisified": "^1.0.4",
     "joi": "^14.3.1",
