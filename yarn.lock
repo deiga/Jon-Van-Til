@@ -3549,6 +3549,11 @@ jsonpath-plus@^0.16.0:
   resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-0.16.0.tgz#fe441b23f03ec6979a5603513988cd3edb7db5dc"
   integrity sha1-/kQbI/A+xpeaVgNROYjNPtt9tdw=
 
+jsonschema@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.2.4.tgz#a46bac5d3506a254465bc548876e267c6d0d6464"
+  integrity sha512-lz1nOH69GbsVHeVgEdvyavc/33oymY1AZwtePMiMj4HZPMbP5OIKK3zT9INMWjwua/V4Z4yq7wSlBbSG+g4AEw==
+
 jsonwebtoken@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.3.0.tgz#056c90eee9a65ed6e6c72ddb0a1d325109aaf643"
@@ -4915,10 +4920,10 @@ serialize-javascript@^1.4.0:
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
   integrity sha512-Ga8c8NjAAp46Br4+0oZ2WxJCwIzwP60Gq1YPgU+39PiTVxyed/iKE/zyZI6+UlVYH5Q4PaQdHhcegIFPZTUfoQ==
 
-serverless-offline@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.2.2.tgz#2951fa17900cf63547b4cd3b4ad0b39dea95658a"
-  integrity sha512-EVbQ46tP84WU7ao8rupDnpFwleiTAsjXIsrV4WEhEHPJgsSTsH4ZGWfyot8MXTAP3udBTYteAaalx2ckPtsHzw==
+serverless-offline@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.3.0.tgz#593c7d245df7135e1a81f1072f91628d10e57a31"
+  integrity sha512-CQBno41v4elXA5+VTVD09mmMIo9zxks8Wr23gKV7IgwAkX9TYmGJrd13lZgTPvbhB4jC4kLuZuAongwu+Bne7Q==
   dependencies:
     boom "^7.3.0"
     cryptiles "^4.1.2"
@@ -4927,6 +4932,7 @@ serverless-offline@^4.2.2:
     hapi-cors-headers "^1.0.3"
     js-string-escape "^1.0.1"
     jsonpath-plus "^0.16.0"
+    jsonschema "^1.2.4"
     jsonwebtoken "^8.3.0"
     trim-newlines "^2.0.0"
     velocityjs "^1.1.2"
