@@ -1116,10 +1116,10 @@ aws-sdk@2.131.0:
     xml2js "0.4.17"
     xmlbuilder "4.2.1"
 
-aws-sdk@^2.399.0:
-  version "2.399.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.399.0.tgz#43cb0aac79a1d534baf7e537b84f9a6beccb5f7b"
-  integrity sha512-Yb8CETbjUX9v7TqnT98Ou49G+6r28O0im0HifqZdGSqybJ1d6f52FVeDmpvFV7ayho+udoBV424ga/TcaceKcg==
+aws-sdk@^2.401.0:
+  version "2.401.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.401.0.tgz#867fd36fa4fc789da8b7c1c387f4ca41b757af75"
+  integrity sha512-mOI4gzKoP/g8Q0ToAaqTh7TijGG9PvGVVUkKmurXqBKy7GTPmy4JizfVkTrM+iBg7RAsx5H2lBxBFpdEFBa5fg==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
