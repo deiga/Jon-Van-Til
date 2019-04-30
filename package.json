@@ -32,7 +32,7 @@
     "json-loader": "^0.5.7",
     "serverless-offline": "^4.9.4",
     "serverless-plugin-optimize": "^4.0.0-rc.1",
-    "serverless-webpack": "^5.2.0",
+    "serverless-webpack": "^5.3.0",
     "webpack": "^4.30.0",
     "webpack-node-externals": "^1.7.2"
   },
