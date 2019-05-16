@@ -4858,10 +4858,10 @@ serialize-javascript@^1.4.0:
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
   integrity sha512-Ga8c8NjAAp46Br4+0oZ2WxJCwIzwP60Gq1YPgU+39PiTVxyed/iKE/zyZI6+UlVYH5Q4PaQdHhcegIFPZTUfoQ==
 
-serverless-offline@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.10.0.tgz#608ae9e1a85886fc80532610ff06e9e684e99901"
-  integrity sha512-5UnPVv2Sljl2TVxLmdJ3knPAwf/EmFEqumF+bEfRifah+1SuJV5JtNGVphoVmdeV24qngat2Wd/VRM43S7ipqw==
+serverless-offline@^4.10.2:
+  version "4.10.2"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-4.10.2.tgz#a298cad745fc1ff888ac0d178aae070d75d76132"
+  integrity sha512-xc2pRTFqsfbYoXbApjAEyxn3qQnfEB827rc3pUsrlg7WahROmGuOUC9t7YLsmqLHaa5Au5n9RW4+zbxsiyxikQ==
   dependencies:
     boom "^7.3.0"
     cryptiles "^4.1.3"
