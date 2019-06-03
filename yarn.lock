@@ -4772,10 +4772,10 @@ serialize-javascript@^1.4.0:
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
   integrity sha512-Ga8c8NjAAp46Br4+0oZ2WxJCwIzwP60Gq1YPgU+39PiTVxyed/iKE/zyZI6+UlVYH5Q4PaQdHhcegIFPZTUfoQ==
 
-serverless-offline@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.0.0.tgz#4b310b19a0b7d364bf958fb586123614a211fe24"
-  integrity sha512-P61pJ2zZN+h+mjv6ZdscTGZEFZx8AWA1rczHDNsljVrccW/rJaedig+zJwBVy9YJOX0+7jtCLa6b09gdT6S95g==
+serverless-offline@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-5.0.1.tgz#bafd1698db7fee69db7f2b5914918512810eb446"
+  integrity sha512-TA+hYfz2XdtAMJ9dvmApmQWBVdK0VWEo9pKpu3q2M0lfiZq7aZFjKJUSL2uVdceKDntM9itHmglyIAbLfu75AA==
   dependencies:
     "@hapi/boom" "^7.4.2"
     "@hapi/cryptiles" "^4.2.0"
