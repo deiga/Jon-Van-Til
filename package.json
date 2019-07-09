@@ -22,7 +22,7 @@
   "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
   "devDependencies": {
     "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.2",
+    "@babel/preset-env": "^7.5.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-source-map-support": "^2.0.1",
     "eslint": "^5.16.0",
