@@ -28,7 +28,7 @@ provider:
         - dynamodb:DescribeTable
       Resource: "*"
   stage: ${opt:stage, self:custom.defaultStage}
-  profile: ${self:custom.profiles.${self:provider.stage}, 'default'}
+  profile: ${self:custom.profiles.${self:provider.stage}, ''}
 
 custom:
   defaultStage: dev
