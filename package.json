@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "sls webpack",
-    "test": "sls invoke local -f api-library --data '{\"resource\":\"/api/v2/books\"}'",
-    "test:search": "sls invoke local -f api-library --data '{\"resource\":\"/api/v2/books/{query}\", \"path\": \"/api/v2/books/foo\", \"pathParameters\": {\"query\": \"foo\"}}'",
-    "test:get": "sls invoke local -f api-library --data '{\"resource\":\"/api/v2/book/{id}\", \"pathParameters\": {\"id\": \"f97e729f-1e88-4c30-86a3-0988c58342f9\"}}'",
-    "test:add": "sls invoke local -f api-library --data '{\"resource\":\"/api/v2/books/add\", \"body\": {\"name\": \"foo\", \"format\": \"ebook\"}}  t'"
+    "test": "sls --stage test invoke local -f api-library --data '{\"resource\":\"/api/v2/books\"}'",
+    "test:search": "sls --stage test invoke local -f api-library --data '{\"resource\":\"/api/v2/books/{query}\", \"path\": \"/api/v2/books/foo\", \"pathParameters\": {\"query\": \"foo\"}}'",
+    "test:get": "sls --stage test invoke local -f api-library --data '{\"resource\":\"/api/v2/book/{id}\", \"pathParameters\": {\"id\": \"f97e729f-1e88-4c30-86a3-0988c58342f9\"}}'",
+    "test:add": "sls --stage test invoke local -f api-library --data '{\"resource\":\"/api/v2/books/add\", \"body\": {\"name\": \"foo\", \"format\": \"ebook\"}}  t'"
   },
   "repository": {
     "type": "git",
