@@ -1289,7 +1289,7 @@
     "@hapi/bourne" "1.x.x"
     "@hapi/hoek" "6.x.x"
 
-"@serverless/cli@^1.1.1":
+"@serverless/cli@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@serverless/cli/-/cli-1.2.3.tgz#1a3aec44214fe96c14d1f00cb9ce513d5835e991"
   integrity sha512-N/hsPZrE/zK8Iv98bdEG7J6ZhotWXwywjc/bKWcbhZeXENqbS7UD2qtyL/pfGuNodFVG587l8Cf+UvK8OcA6Qg==
@@ -1955,10 +1955,10 @@ aws-sdk@^2.466.0:
     uuid "3.3.2"
     xml2js "0.4.19"
 
-aws-sdk@^2.526.0:
-  version "2.534.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.534.0.tgz#72eac35c58651eb533044551e5fd06a7a8c8be79"
-  integrity sha512-0wm8mQg+N7vzOaFiM8wwvUXqWayf1ebqfi/SYVygASA79SnRe16pT73X2kEB/DbhXo+487Hf9p3hBGAsjoLcIA==
+aws-sdk@^2.535.0:
+  version "2.535.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.535.0.tgz#b14bf4fc8e579b4a672eecd900efbb42e29cf10a"
+  integrity sha512-k/ujHppqiEL05jKMPMvABPJhLTxodE/eGLkL9sUjwF5kLcxvzCC6W8K3KbH/pucrKNk5LSz0iQq04+FFvrEy8w==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -5189,10 +5189,10 @@ is-wsl@^1.1.0:
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
 
-is-wsl@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.1.0.tgz#94369bbeb2249ef07b831b1b08590e686330ccbb"
-  integrity sha512-pFTjpv/x5HRj8kbZ/Msxi9VrvtOMRBqaDi3OIcbwPI3OuH+r3lLxVWukLITBaOGJIbA/w2+M1eVmVa4XNQlAmQ==
+is-wsl@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.1.1.tgz#4a1c152d429df3d441669498e2486d3596ebaf1d"
+  integrity sha512-umZHcSrwlDHo2TGMXv0DZ8dIUGunZ2Iv68YZnrmCiBPkZ4aaOhtv7pXJKeki9k3qJ3RJr0cDyitcl5wEH3AYog==
 
 is-yarn-global@^0.3.0:
   version "0.3.0"
@@ -6439,6 +6439,13 @@ p-limit@^2.0.0:
   dependencies:
     p-try "^2.0.0"
 
+p-limit@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.2.1.tgz#aa07a788cc3151c939b5131f63570f0dd2009537"
+  integrity sha512-85Tk+90UCVWvbDavCLKPOLC9vvY8OwEX/RtKF+/1OADJMVlFfEHOiMTPVyxg7mk/dKa+ipdHm0OUkTvCpMTuwg==
+  dependencies:
+    p-try "^2.0.0"
+
 p-locate@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-2.0.0.tgz#20a0103b222a70c8fd39cc2e580680f3dde5ec43"
@@ -7374,16 +7381,16 @@ serverless-webpack@5.3.1:
     semver "^5.5.0"
     ts-node "^3.2.0"
 
-serverless@1.52.2:
-  version "1.52.2"
-  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.52.2.tgz#8567c1967647b9748607c8be13263d1da4533b5e"
-  integrity sha512-JLRh52heei1kiTg/mdXdVeJXlB26nXI6uK3/jQvG2a16WwrXD+h033azkD9qqk7WgISLgDKPJbvlnsCAXLcX5Q==
+serverless@1.53.0:
+  version "1.53.0"
+  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.53.0.tgz#0accbc269d304f5cffa49392c761e0e7d598a6eb"
+  integrity sha512-cDyqZ6V0AY/M3suo6p2VBMNfFQ9Im3ZFXrY2cJQuCp2is+66j5OUSplR6H5Anz71ns4IWnMzjhHMcrLolMlVng==
   dependencies:
-    "@serverless/cli" "^1.1.1"
+    "@serverless/cli" "^1.2.3"
     "@serverless/enterprise-plugin" "^3.0.0"
     archiver "^1.3.0"
     async "^1.5.2"
-    aws-sdk "^2.526.0"
+    aws-sdk "^2.535.0"
     bluebird "^3.5.5"
     cachedir "^2.2.0"
     chalk "^2.4.2"
@@ -7398,7 +7405,7 @@ serverless@1.52.2:
     https-proxy-agent "^2.2.2"
     inquirer "^6.5.2"
     is-docker "^1.1.0"
-    is-wsl "^2.1.0"
+    is-wsl "^2.1.1"
     js-yaml "^3.13.1"
     json-cycle "^1.3.0"
     json-refs "^2.1.7"
@@ -7412,6 +7419,7 @@ serverless@1.52.2:
     ncjsm "^3.0.0"
     node-fetch "^1.7.3"
     object-hash "^1.3.1"
+    p-limit "^2.2.1"
     promise-queue "^2.2.5"
     raven "^1.2.1"
     rc "^1.2.8"
@@ -8546,10 +8554,10 @@ webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@4.40.2:
-  version "4.40.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.40.2.tgz#d21433d250f900bf0facbabe8f50d585b2dc30a7"
-  integrity sha512-5nIvteTDCUws2DVvP9Qe+JPla7kWPPIDFZv55To7IycHWZ+Z5qBdaBYPyuXWdhggTufZkQwfIK+5rKQTVovm2A==
+webpack@4.41.0:
+  version "4.41.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.0.tgz#db6a254bde671769f7c14e90a1a55e73602fc70b"
+  integrity sha512-yNV98U4r7wX1VJAj5kyMsu36T8RPPQntcb5fJLOsMz/pt/WrKC0Vp1bAlqPLkA1LegSwQwf6P+kAbyhRKVQ72g==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
