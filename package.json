@@ -30,11 +30,11 @@
     "eslint-plugin-import": "2.18.2",
     "ignore-loader": "0.1.2",
     "json-loader": "0.5.7",
-    "serverless": "1.52.2",
+    "serverless": "1.53.0",
     "serverless-offline": "5.11.0",
     "serverless-plugin-optimize": "4.0.0-rc.1",
     "serverless-webpack": "5.3.1",
-    "webpack": "4.40.2",
+    "webpack": "4.41.0",
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
