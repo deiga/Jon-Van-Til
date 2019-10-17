@@ -1963,10 +1963,10 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-sdk@2.548.0:
-  version "2.548.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.548.0.tgz#20a3c7a77e1c6fd694cdb5e0ecc0ccf0d0542674"
-  integrity sha512-dnG1MEc3uOonGDswHPiq7TYn6EOG3+IQhF2LSRambz9adaZxwRgFOII7UVPJjh33FtxKpMzOSmf62R+EX822Nw==
+aws-sdk@2.552.0:
+  version "2.552.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.552.0.tgz#4b45b0a60b3728dbd111edd76445cf61661eb076"
+  integrity sha512-GLZpKIX0BOQK8JEjFcJElnroLmUxnWUfHzRJwxVajH9S0tmBPsDYH5QLIb+Lg6wWq4sBAopgE+WOtAeb8/rcLw==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -8587,10 +8587,10 @@ webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@4.41.1:
-  version "4.41.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.1.tgz#5388dd3047d680d5d382a84249fd4750e87372fd"
-  integrity sha512-ak7u4tUu/U63sCVxA571IuPZO/Q0pZ9cEXKg+R/woxkDzVovq57uB6L2Hlg/pC8LCU+TWpvtcYwsstivQwMJmw==
+webpack@4.41.2:
+  version "4.41.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.2.tgz#c34ec76daa3a8468c9b61a50336d8e3303dce74e"
+  integrity sha512-Zhw69edTGfbz9/8JJoyRQ/pq8FYUoY0diOXqW0T6yhgdhCv6wr0hra5DwwWexNRns2Z2+gsnrNcbe9hbGBgk/A==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
