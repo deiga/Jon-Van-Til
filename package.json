@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
   "devDependencies": {
-    "@babel/core": "7.7.2",
-    "@babel/preset-env": "7.7.1",
+    "@babel/core": "7.7.4",
+    "@babel/preset-env": "7.7.4",
     "babel-loader": "8.0.6",
     "babel-plugin-source-map-support": "2.1.1",
-    "eslint": "6.6.0",
+    "eslint": "6.7.1",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.18.2",
     "ignore-loader": "0.1.2",
@@ -38,7 +38,7 @@
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
-    "aws-sdk": "2.577.0",
+    "aws-sdk": "2.578.0",
     "dynogels": "9.1.0",
     "dynogels-promisified": "1.0.4",
     "joi": "14.3.1",
