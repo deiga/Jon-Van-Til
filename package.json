@@ -30,15 +30,15 @@
     "eslint-plugin-import": "2.19.1",
     "ignore-loader": "0.1.2",
     "json-loader": "0.5.7",
-    "serverless": "1.60.1",
+    "serverless": "1.60.4",
     "serverless-offline": "5.12.1",
     "serverless-plugin-optimize": "4.0.0-rc.1",
     "serverless-webpack": "5.3.1",
-    "webpack": "4.41.4",
+    "webpack": "4.41.5",
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
-    "aws-sdk": "2.595.0",
+    "aws-sdk": "2.596.0",
     "dynogels": "9.1.0",
     "dynogels-promisified": "1.0.4",
     "joi": "14.3.1",
