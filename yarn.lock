@@ -2340,10 +2340,10 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-sdk@2.603.0, aws-sdk@^2.602.0:
-  version "2.603.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.603.0.tgz#0920756d2666f4fcfa7233841ef35cd04da81348"
-  integrity sha512-+VlskUDLZLQDDlaVa0Tb02aEFEWcKkTfTew1SGYwce9hUrKcR33IX4e9kM6MyI7UeLQAl0v8dagTniP67UrTQw==
+aws-sdk@2.604.0:
+  version "2.604.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.604.0.tgz#b05a1540d6ee448f5545e4f829ad9606c480aebb"
+  integrity sha512-5SmC/3YL2Zve9SFeeL/xaUbsxwW2EfwsAi/WTCAwxRUGehT7FNO8Ojiv0u02aODEBSTssugDZw21ka+dC3l/Yw==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -2359,6 +2359,21 @@ aws-sdk@^2.408.0:
   version "2.547.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.547.0.tgz#2511cb5c6471467b2f9ab59d10227640e0c75a0f"
   integrity sha512-SbFTTkxRMynrcDxXxWS3NxTbgpBhBDHKSQpP6Pd8qVIgul2uRjCE1YLk9dq1EXdY0ti8KmoLS9xY8R3CPjxLag==
+  dependencies:
+    buffer "4.9.1"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
+aws-sdk@^2.602.0:
+  version "2.603.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.603.0.tgz#0920756d2666f4fcfa7233841ef35cd04da81348"
+  integrity sha512-+VlskUDLZLQDDlaVa0Tb02aEFEWcKkTfTew1SGYwce9hUrKcR33IX4e9kM6MyI7UeLQAl0v8dagTniP67UrTQw==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
