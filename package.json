@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
   "devDependencies": {
-    "@babel/core": "7.8.0",
-    "@babel/preset-env": "7.8.2",
+    "@babel/core": "7.8.3",
+    "@babel/preset-env": "7.8.3",
     "babel-loader": "8.0.6",
     "babel-plugin-source-map-support": "2.1.1",
     "eslint": "6.8.0",
@@ -30,7 +30,7 @@
     "eslint-plugin-import": "2.20.0",
     "ignore-loader": "0.1.2",
     "json-loader": "0.5.7",
-    "serverless": "1.61.0",
+    "serverless": "1.61.1",
     "serverless-offline": "5.12.1",
     "serverless-plugin-optimize": "4.0.0-rc.1",
     "serverless-webpack": "5.3.1",
@@ -38,7 +38,7 @@
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
-    "aws-sdk": "2.602.0",
+    "aws-sdk": "2.603.0",
     "dynogels": "9.1.0",
     "dynogels-promisified": "1.0.4",
     "joi": "14.3.1",
