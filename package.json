@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/deiga/Jon-Van-Til#readme",
   "devDependencies": {
-    "@babel/core": "7.10.1",
-    "@babel/preset-env": "7.10.1",
+    "@babel/core": "7.10.2",
+    "@babel/preset-env": "7.10.2",
     "babel-loader": "8.1.0",
     "babel-plugin-source-map-support": "2.1.1",
     "eslint": "7.1.0",
@@ -38,7 +38,7 @@
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
-    "aws-sdk": "2.686.0",
+    "aws-sdk": "2.687.0",
     "dynogels": "9.1.0",
     "dynogels-promisified": "1.0.4",
     "joi": "14.3.1",
