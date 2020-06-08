@@ -24,7 +24,7 @@
     "@babel/core": "7.10.2",
     "@babel/preset-env": "7.10.2",
     "babel-loader": "8.1.0",
-    "babel-plugin-source-map-support": "2.1.1",
+    "babel-plugin-source-map-support": "2.1.2",
     "eslint": "7.2.0",
     "eslint-config-airbnb-base": "14.1.0",
     "eslint-plugin-import": "2.21.1",
