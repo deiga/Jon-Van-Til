@@ -15,7 +15,7 @@ service: guve-slack-library
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   region: eu-west-1
   cfLogs: true
   iamRoleStatements:
@@ -43,7 +43,7 @@ custom:
 plugins:
   - serverless-offline
   - serverless-webpack
-  - serverless-plugin-optimize
+  # - serverless-plugin-optimize
 
 package:
   individually: true
