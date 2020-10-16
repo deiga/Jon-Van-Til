@@ -8,7 +8,7 @@ const dynogels = require('dynogels-promisified');
 
 dynogels.dynamoDriver(dynamoDB);
 // dynogels.log.level('debug');
-const Joi = require("dynogels/node_modules/joi");
+const Joi = require('joi');
 
 const Books = dynogels.define('Books', {
   hashKey: 'BookId',
