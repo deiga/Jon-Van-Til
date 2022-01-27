@@ -41,7 +41,7 @@
     "aws-sdk": "2.1064.0",
     "dynogels": "9.1.0",
     "dynogels-promisified": "1.0.4",
-    "joi": "11.3.4",
+    "joi": "17.6.0",
     "source-map-support": "0.5.19"
   }
 }
